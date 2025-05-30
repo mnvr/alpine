@@ -7,3 +7,4 @@
 mkdir -p docs
 
 jupyter nbconvert --to html --template classic --output-dir=docs *.ipynb
+sed "s#<time></time>#<time>`date '+%b %d, %Y'`</time>#" index.html >docs/index.html
