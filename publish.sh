@@ -6,8 +6,8 @@
 set -o xtrace
 set -o errexit
 
-git branch -D gh-pages
-git checkout -b gh-pages
+git checkout gh-pages
+git merge --no-edit main
 mkdir -p docs
 
 jupyter nbconvert --to html --template classic --output-dir=docs *.ipynb
