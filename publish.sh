@@ -6,7 +6,7 @@
 set -o xtrace
 set -o errexit
 
-git checkout -b gh-pages
+git checkout gh-pages
 mkdir -p docs
 
 jupyter nbconvert --to html --template classic --output-dir=docs *.ipynb
