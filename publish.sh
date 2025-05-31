@@ -6,7 +6,7 @@
 set -o xtrace
 set -o errexit
 
-git checkout gh-pages
+git branch -C gh-pages
 mkdir -p docs
 
 jupyter nbconvert --to html --template classic --output-dir=docs *.ipynb
@@ -14,7 +14,6 @@ sed "s#<time></time>#<time>`date '+%b %d, %Y'`</time>#" index.html >docs/index.h
 
 git add docs
 git commit -m render
-git push origin gh-pages
+git push --force origin gh-pages
 git checkout main
 git push
-
