@@ -13091,7 +13091,8 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="xfce">xfce<a class="anchor-link" href="#xfce">¶</a></h1><p>Desktop environment</p>
 <ul>
-<li><a href="https://xfce.org/">xfce.org</a></li>
+<li><a href="https://xfce.org/">https://xfce.org/</a></li>
+<li><a href="https://docs.xfce.org/xfce/getting-started">https://docs.xfce.org/xfce/getting-started</a></li>
 </ul>
 </div>
 </div>
@@ -13126,7 +13127,7 @@ Please report bugs to &lt;https://gitlab.xfce.org/xfce/libxfce4ui/-/issues&gt;.
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=5c3107de"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Components">Components<a class="anchor-link" href="#Components">¶</a></h3><p>In the UNIX-small-tools spirit, the "Xfce desktop environment" is a collection of programs that provides a full-featured desktop environment.</p>
+<h2 id="Components">Components<a class="anchor-link" href="#Components">¶</a></h2><p>In the UNIX-small-tools spirit, the "Xfce desktop environment" is a collection of programs that provides a full-featured desktop environment.</p>
 <blockquote>
 <p>Xfce used to stand for something, an acronymn, whose expansion no longer has any relevance, so "Xfce" just means itself now.</p>
 </blockquote>
@@ -13137,7 +13138,7 @@ Please report bugs to &lt;https://gitlab.xfce.org/xfce/libxfce4ui/-/issues&gt;.
 <ul>
 <li><p><strong>Window manager</strong> (<code>xfwm4</code>): Handles the placement of windows on screen, provides window decorations and manages workspaces.</p>
 </li>
-<li><p><strong>Desktop</strong> (<code>xfdesktop</code>): Sets the background image and provides a root window menu, desktop icons or minimized icons and a window list.</p>
+<li><p><strong>Desktop manager</strong> (<code>xfdesktop</code>): Sets the background image and provides a root window menu, desktop icons or minimized icons and a window list.</p>
 </li>
 <li><p><strong>Panel</strong> (<code>xfce4-panel</code>): Switch between open windows, launch applications, switch workspaces and use menu plugins to browse programs and directories.</p>
 </li>
@@ -13150,7 +13151,7 @@ Please report bugs to &lt;https://gitlab.xfce.org/xfce/libxfce4ui/-/issues&gt;.
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=b2be49a3"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Session-manager-xfce4-session">Session manager <code>xfce4-session</code><a class="anchor-link" href="#Session-manager-xfce4-session">¶</a></h3><p><code>man xfce4-session</code></p>
+<h2 id="Session-manager-xfce4-session">Session manager <code>xfce4-session</code><a class="anchor-link" href="#Session-manager-xfce4-session">¶</a></h2><p><code>man xfce4-session</code></p>
 <blockquote>
 <p>The xfce4-session program starts up the Xfce Desktop Environment and is typically executed by your login manager (e.g. xdm, gdm, kdm, wdm or from your X startup scripts). It will load your last session or a default session that includes the standard Xfce programs if no saved session is available.</p>
 <p>xfce4-session is a standard X11R6 session manager than can manage any X11R6 session manager compliant program, including gnome and KDE programs.</p>
@@ -13302,6 +13303,133 @@ LastAccess=1748618509
   [FLAGS] 0x10000
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f94dfa0a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More details about xfce4-session are available in the Xfce online manuals:</p>
+<ul>
+<li><a href="https://docs.xfce.org/xfce/xfce4-session">https://docs.xfce.org/xfce/xfce4-session</a></li>
+</ul>
+<blockquote>
+<p>Xfce4-session is a session manager for Xfce. Its task is to save the state of your desktop (opened applications and their location) and restore it during a next startup. You can create several different sessions and choose one of them on startup.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=06c90e15"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Window-manager">Window manager<a class="anchor-link" href="#Window-manager">¶</a></h2><h3 id="Tips">Tips<a class="anchor-link" href="#Tips">¶</a></h3><blockquote>
+<p>Shading (and unshading) a window, or rolling it up to hide its contents and only show the title bar, can be done by scrolling the mouse wheel when hovering over the title bar.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=bbf26246"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Display-Manager">Display Manager<a class="anchor-link" href="#Display-Manager">¶</a></h2><p>Who starts Xfce?</p>
+<blockquote>
+<h3 id="Running-Xfce">Running Xfce<a class="anchor-link" href="#Running-Xfce">¶</a></h3><h4 id="Display-managers">Display managers<a class="anchor-link" href="#Display-managers">¶</a></h4><p><code>xfce4-session</code> installs a file that should add an option for display managers to run an Xfce session. Xfce does not have its own DM.</p>
+<h4 id="Commandline">Commandline<a class="anchor-link" href="#Commandline">¶</a></h4><p><code>startxfce4</code></p>
+</blockquote>
+<p>In the case of alpine when using <code>setup-desktop</code> with the xfce option, the display manager is <a href="lightdm.html">lightdm</a>.</p>
+<p>Lightdm then would start xfce4-session, which would in turn</p>
+<blockquote>
+<p>When you start the Xfce session for the first time, several programs are started by the Xfce session manager.</p>
+<ul>
+<li>Panel</li>
+<li>Desktop manager</li>
+<li>Window manager</li>
+<li>Settings manager.</li>
+</ul>
+<p>The Xfce session manager manages the startup of applications, and also allows you to save your session when you quit Xfce, so that the next time you log in, the same programs are started for you automatically.</p>
+</blockquote>
+<p>We can see this in the following (ellided) output of <code>pstree</code></p>
+<pre><code>init-+...                                                                       
+     |-elogind-daemon                                                           
+     |-7*[getty]                                                                
+     |-supervise-daem--lightdm-+-Xorg---{InputThread}                           
+                               |-lightdm-+-xfce4-session-+-Thunar               
+                                                         |-xfce4-panel          
+                                                         |-xfce4-power-man      
+                                                         |-xfce4-screensav      
+                                                         |-xfce4-terminal       
+                                                         |-xfdesktop            
+                                                         |-xfsettingsd 
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=a6af4e65"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Components-II">Components II<a class="anchor-link" href="#Components-II">¶</a></h2><ul>
+<li><p><strong>Settings manager</strong> (<code>xfce4-settings</code>): A pseudo component which is made up of a daemon, manager and editor to centralize the configuration management.</p>
+</li>
+<li><p><strong>Application finder</strong> (<code>xfce4-appfinder</code>): <code>Alt-F2</code> to launch applications.</p>
+</li>
+<li><p><strong>Thunar</strong> (<code>thunar</code>): File manager.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=15594472"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Application-finder-xfce4-appfinder">Application finder <code>xfce4-appfinder</code><a class="anchor-link" href="#Application-finder-xfce4-appfinder">¶</a></h2><blockquote>
+<p>The Xfce panel can be used to access programs by means of <em>launchers</em>, these program launchers are displayed as icons on the panel to launch the specified program. The <em>Applications Menu</em> item on the panel also contains all installed programs.</p>
+</blockquote>
+<blockquote>
+<p><em>Application finder</em> (<code>Alt-F2</code> or chose "Run Program..." from the Application or Desktop Menu) can be used to launch programs by name.</p>
+</blockquote>
+<p>By default, the <code>xfce4-session</code> will start an instance of <code>xfce4-appfinder</code> (as a child of <code>xfsettingsd</code> and keep it running in the background for fast access, reusing it for invocations.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=04c3a14b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Thunar">Thunar<a class="anchor-link" href="#Thunar">¶</a></h2><p>File manager, named after the German god of Thunder (who appears to be the same entity as the perhaps better known Norse god Thor).</p>
+<p><code>thunar</code> without arguments does the same thing as <code>xdg-open .</code>, opening the current folder in the file manager.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9228f31c">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-bash"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span><span class="sb">`</span>which<span class="w"> </span>thunar<span class="sb">`</span><span class="w"> </span><span class="sb">`</span>which<span class="w"> </span>Thunar<span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lrwxrwxrwx    1 root     root           6 May 17 17:01 <span class="ansi-cyan-intense-fg ansi-bold">/usr/bin/Thunar</span> -&gt; <span class="ansi-green-intense-fg ansi-bold">thunar</span>
+-rwxr-xr-x    1 root     root      777.9K Jul 31  2024 <span class="ansi-green-intense-fg ansi-bold">/usr/bin/thunar</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a0b2d1e5">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-bash"><pre><span></span>
+</pre></div>
 </div>
 </div>
 </div>
