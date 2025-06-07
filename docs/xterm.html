@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>docs</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>xterm</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -13086,38 +13086,70 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=5ca963b4"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=83b30501"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Docs">Docs<a class="anchor-link" href="#Docs">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4f478abc"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Install">Install<a class="anchor-link" href="#Install">¶</a></h3><p>Install the docs package to obtain man pages.</p>
-<pre><code>doas apk add docs
-</code></pre>
-<p>The <code>docs</code> special package installs docs for both already installed packages and future ones automatically.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=a37e769c"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Busybox">Busybox<a class="anchor-link" href="#Busybox">¶</a></h3><p>Busybox itself has a man page (<code>man busybox</code>) which only has a terse overview of the utilities. For more detailed documentation, the opengroup specs are handy (busybox tries to, but does not guarantee, POSIX conformance).</p>
+<h1 id="Xfce-terminal">Xfce terminal<a class="anchor-link" href="#Xfce-terminal">¶</a></h1><p>Xfce Terminal emulator</p>
+<blockquote>
+<p><code>xterm</code> is the OG X terminal emulator. Here we talk of the terminal emulator provided by the Xfce desktop environment, currently named <code>xfce4-terminal</code>.</p>
+</blockquote>
+<h2 id="Terminal-emulators">Terminal emulators<a class="anchor-link" href="#Terminal-emulators">¶</a></h2><p>Long and interesting reads about what and why</p>
 <ul>
-<li>Top level: <a href="https://pubs.opengroup.org/onlinepubs/9799919799/">https://pubs.opengroup.org/onlinepubs/9799919799/</a></li>
-<li>Index of shell commands:  <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/</a></li>
-<li>Man page for awk: <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html</a></li>
+<li>The TTY demystified - <a href="https://www.linusakesson.net/programming/tty/">https://www.linusakesson.net/programming/tty/</a></li>
+<li>TTY: under the hood - <a href="https://www.yabage.me/2016/07/08/tty-under-the-hood/">https://www.yabage.me/2016/07/08/tty-under-the-hood/</a></li>
 </ul>
-<h3 id="POSIX-man-pages">POSIX man pages<a class="anchor-link" href="#POSIX-man-pages">¶</a></h3><p>But hey, there is a better way!</p>
-<pre><code>doas apk add man-pages-posix
-man awk
-???
-profit!
+<h2 id="Keyboard-shortcuts">Keyboard shortcuts<a class="anchor-link" href="#Keyboard-shortcuts">¶</a></h2><p>Prefix <code>Ctrl-Shift</code></p>
+<ul>
+<li>New tab - T</li>
+<li>Close tab - W</li>
+<li>New window - N</li>
+<li>Close window - Q</li>
+<li>Copy - C</li>
+<li>Paste - V</li>
+</ul>
+<p>Prefix <code>Ctrl</code></p>
+<ul>
+<li>Prev / next tab - Page up / down</li>
+</ul>
+<blockquote>
+<p>On MacBook keyboards, Page up / down is Fn + up / down arrow.</p>
+</blockquote>
+<p>Prefix <code>Shift</code></p>
+<ul>
+<li>Scroll line up / down - Arrow</li>
+</ul>
+<p>Prefix <code>Alt</code></p>
+<ul>
+<li>Go to tab - 1...9</li>
+</ul>
+<h3 id="Preferences">Preferences<a class="anchor-link" href="#Preferences">¶</a></h3><ul>
+<li>Turn on "Disable all menu access keys (such as Alt + f)", otherwise it gets in the way of emacs.</li>
+</ul>
+<h2 id="Dynamic-title">Dynamic title<a class="anchor-link" href="#Dynamic-title">¶</a></h2><p>Change "Dynamically set-title" in preferences to "Replaces initial title".</p>
+<p>Now we can use tty escape sequences to set the title.</p>
+<div class="highlight"><pre><span></span><span class="nb">printf</span><span class="w"> </span><span class="s2">"\e]0;test\a"</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s2">"\033]0;test\007"</span><span class="w"> </span><span class="c1"># equivalent</span>
+</pre></div>
+<p>The "\e]0;" escape sequence asks whoever is listening to set title to the part that follows until the next "\a" escape sequence.</p>
+<p>Unfortunately I can't get the printf to work on ash (it works in bash), but that is fine, because while illustrative, we need it to be "dynamic" too.</p>
+<p>Fortunately, it works when we put it inside the PS1 (the prompt determinant).</p>
+<p>The default prompt for me is "\w $ " (<code>echo $PS1</code>). So I augment it with the above incantation, so the it runs each time the prompt is displayed.</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">"\e]0;</span><span class="k">$(</span>basename<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">))</span><span class="s2">\a\w \$ "</span>
+</pre></div>
+<p>Unfortunately, it still doesn't update on switching directories. Aha! Of course, that's because the basename is encoded into the PS1, it does not get reevaluated each time. How?</p>
+<p>We can use one of the special sequences that <code>PS1</code> supports! Let's use <code>\w</code></p>
+<div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">"\e]0;\w\a\w \$ "</span>
+</pre></div>
+<p>Now is also a good time to look at the documentation (after having solved the issue, as documentation is supposed to be used). Even though not using bash, I can't think of another place to see the docs except <code>man bash</code>. These following escape sequences look relevant:</p>
+<pre><code>\[    begin a sequence of non-printing characters, which could 
+      be used to embed a terminal control sequence into the prompt
+\]    end a sequence of non-printing characters
 </code></pre>
+<p>It seems to work without it, but let's be nice.</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">"\[\e]0;\w\a\]\w \$ "</span>
+</pre></div>
+<p>There is also \t, for the time.</p>
+<p>After tweaking to taste, put it in the <code>.ashrc</code>.</p>
 </div>
 </div>
 </div>

@@ -13149,6 +13149,12 @@ usr/libexec/git-core/git-credential-libsecret
 <div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>/usr/libexec/git-core/git-credential-libsecret
 </pre></div>
 <p>Create the <a href="https://github.com/settings/personal-access-tokens/new">PAT</a>, and <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#using-a-personal-access-token-on-the-command-line">perform any operation</a> that requires authentication so that git asks for credentials and uses libsecret to store them.</p>
+<blockquote>
+<p>Note: If libsecret is not present (or not desired), then git's built in "store" credential helper can store the credentials in a plaintext file in your home directory. Before freaking out, remember that that's the same level of security as your ssh key (now you can freak out).</p>
+</blockquote>
+<h3 id="Resetting-credentials">Resetting credentials<a class="anchor-link" href="#Resetting-credentials">¶</a></h3><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"url=https://github.com"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>git<span class="w"> </span>credential<span class="w"> </span>reject
+</pre></div>
+<p>The next time you try to push, it'll ask for the new PAT.</p>
 </div>
 </div>
 </div>

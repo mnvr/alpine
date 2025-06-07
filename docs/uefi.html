@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>docs</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>uefi</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -13086,38 +13086,15 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=5ca963b4"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=a8826f34"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Docs">Docs<a class="anchor-link" href="#Docs">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4f478abc"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Install">Install<a class="anchor-link" href="#Install">¶</a></h3><p>Install the docs package to obtain man pages.</p>
-<pre><code>doas apk add docs
-</code></pre>
-<p>The <code>docs</code> special package installs docs for both already installed packages and future ones automatically.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=a37e769c"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Busybox">Busybox<a class="anchor-link" href="#Busybox">¶</a></h3><p>Busybox itself has a man page (<code>man busybox</code>) which only has a terse overview of the utilities. For more detailed documentation, the opengroup specs are handy (busybox tries to, but does not guarantee, POSIX conformance).</p>
-<ul>
-<li>Top level: <a href="https://pubs.opengroup.org/onlinepubs/9799919799/">https://pubs.opengroup.org/onlinepubs/9799919799/</a></li>
-<li>Index of shell commands:  <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/</a></li>
-<li>Man page for awk: <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html</a></li>
-</ul>
-<h3 id="POSIX-man-pages">POSIX man pages<a class="anchor-link" href="#POSIX-man-pages">¶</a></h3><p>But hey, there is a better way!</p>
-<pre><code>doas apk add man-pages-posix
-man awk
-???
-profit!
-</code></pre>
+<h1 id="UEFI">UEFI<a class="anchor-link" href="#UEFI">¶</a></h1><p>When a computer boots up, what does it do?</p>
+<p>It thinks for a long time about the meaning of it all. This takes a very long time, but since it is very fast, we never notice it.</p>
+<p>After it is done thinking and yet again doesn't arrive at a satisfiable proposition (remember, from its perspective, it is happening the first time), it busies itself, and runs "UEFI" code present on the firmware.</p>
+<p>UEFI is a standard, but the implementations are many and proprietary for the manufacturer of the motherboard. There is a reference implementation (which is also open source) called TianoCore EDK 2 (which can be used by qemu).</p>
+<p>UEFI looks (or, to be more precise, the UEFI standard asks the implementation to go and look) for a ESP - EFI system partition. This is a small FAT partition that contains the bootloaders for one or more OSes. Depending on the user's choice, it loads one of them.</p>
+<p>The user's choice and other settings can be persisted into NVRAM (non-volatile storage). How these "UEFI vars" are saved is up to the implementation (e.g. qemu can save them to a JSON file by using <code>-device uefi-vars-sysbus,jsonfile=uefi.json</code>). The OS can also access these, e.g. using the <code>efivars</code> utility (which delegates to <code>/sys/firmware/efi/efivars/</code>).</p>
 </div>
 </div>
 </div>
