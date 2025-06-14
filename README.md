@@ -1,1 +1,1 @@
-Notes on [Alpine Linux](https://alpinelinux.org/) using Jupyter notebooks.
+Moved to [mnvr.in/mars](https://mnvr.in/mars)
